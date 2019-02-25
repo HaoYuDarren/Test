@@ -1,13 +1,17 @@
 package com.yh.bootdemo.service;
 
-import com.yh.bootdemo.model.User;
+import com.yh.bootdemo.model.TUser;
+
+import java.util.List;
 
 public interface UserService {
-    public void insert(User user);
+    public void insert(TUser TUser);
 
-    public void update(User user);
+    public void update(TUser TUser);
 
-    public User selectById(Integer id);
+    public TUser selectById(Integer id);
 
     public void deleteById(Integer id);
+
+    public List<TUser> selectList();
 }
