@@ -24,6 +24,6 @@ public class UserServiceImplTest {
 
     @Test
     public void selectList() {
-        System.out.println(userMapper.selectList(null).toString());
+        System.out.println(userService.selectList().toString());
     }
 }
