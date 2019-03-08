@@ -1,6 +1,7 @@
 package com.yh.bootdemo.service.impl;
 
-import com.yh.bootdemo.dao.mapper.UserMapper;
+import com.yh.bootdemo.dao.master.UserMapper;
+import com.yh.bootdemo.dao.slave.UserReadMapper;
 import com.yh.bootdemo.model.User;
 import com.yh.bootdemo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,8 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     UserMapper userMapper;
+    @Autowired
+    UserReadMapper userReadMapper;
 
 
     @Override
@@ -25,7 +28,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User selectById(Integer id) {
-        return userMapper.selectById(id);
+        return userReadMapper.selectById(id);
     }
 
     @Override
