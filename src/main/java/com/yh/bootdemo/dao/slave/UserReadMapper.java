@@ -11,4 +11,7 @@ public interface UserReadMapper {
 
     @Select("select * from user where id = #{id}")
     public User selectById(int id);
+
+    @Select("update user  set  where id = #{id}")
+    public User update(int id);
 }

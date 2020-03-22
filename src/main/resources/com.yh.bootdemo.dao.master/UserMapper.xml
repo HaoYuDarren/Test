@@ -3,7 +3,18 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.yh.bootdemo.dao.master.UserMapper">
+
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id">
+insert into sys_user (user_name,user_password,user_email,user_info,head_img,create_time)
+values (#{userName},#{userPassword},#{userEmail},#{userInfo},#{headImg,jdbcType=BLOB},#{createTime,jdbcType=TIMESTAMP})
+<foreach collection="" open="" close="" item="" index="" separator=""></foreach>
+    </insert>
+
     <update id="update" parameterType="com.yh.bootdemo.model.User">
         update user set username = #{username},password = #{password} where id = #{id}
+        <foreach collection="_parameter" item="val" index="key" separator=",">
+        <bind name="usernameLike" value="'%' + val +'%'"></bind>
+            ${key} = #{val}
+        </foreach>
     </update>
 </mapper>
